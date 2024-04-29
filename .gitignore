@@ -7,3 +7,13 @@ util.o
 dwm
 dwm.o
 drw.o
+1
+def.dwm.c
+dwm-awesomebar-20230431-6.4.diff
+dwm-barpadding-6.2.diff
+dwm-default-tag-apps-20210327-61bb8b2.diff
+dwm-hide_vacant_tags-6.3.diff
+dwm-pertag-20200914-61bb8b2.diff
+old.dwm.c
+tags
+
