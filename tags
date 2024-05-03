@@ -861,6 +861,7 @@ resource_type	def.dwm.c	/^enum resource_type {$/;"	g	file:
 restack	def.dwm.c	/^restack(Monitor *m)$/;"	f	typeref:typename:void
 restack	dwm.c	/^restack(Monitor *m)$/;"	f	typeref:typename:void
 restart	def.dwm.c	/^static int restart = 0;$/;"	v	typeref:typename:int	file:
+restart	patch/restartsig.c	/^static int restart = 0;$/;"	v	typeref:typename:int	file:
 root	def.dwm.c	/^static Window root, wmcheckwin;$/;"	v	typeref:typename:Window	file:
 root	drw.h	/^	Window root;$/;"	m	struct:__anon0f5116480308	typeref:typename:Window
 root	dwm.c	/^static Window root, wmcheckwin;$/;"	v	typeref:typename:Window	file:
@@ -871,7 +872,7 @@ run	dwm.c	/^run(void)$/;"	f	typeref:typename:void
 runAutostart	def.dwm.c	/^runAutostart(void) {$/;"	f	typeref:typename:void
 run_command	patch/ipc/dwm-msg.c	/^run_command(const char *name, char *args[], int argc)$/;"	f	typeref:typename:int	file:
 running	def.dwm.c	/^static int running = 1;$/;"	v	typeref:typename:int	file:
-running	dwm.c	/^static int running = 1;$/;"	v	typeref:typename:int	file:
+running	dwm.c	/^static volatile sig_atomic_t running = 1;$/;"	v	typeref:typename:volatile sig_atomic_t	file:
 scan	def.dwm.c	/^scan(void)$/;"	f	typeref:typename:void
 scan	dwm.c	/^scan(void)$/;"	f	typeref:typename:void
 scanner	patch/swallow.c	/^static int scanner;$/;"	v	typeref:typename:int	file:
@@ -935,8 +936,10 @@ showhide	dwm.c	/^showhide(Client *c)$/;"	f	typeref:typename:void
 sigchld	def.dwm.c	/^sigchld(int unused)$/;"	f	typeref:typename:void
 sigdwmblocks	def.dwm.c	/^sigdwmblocks(const Arg *arg)$/;"	f	typeref:typename:void
 sighup	def.dwm.c	/^sighup(int unused)$/;"	f	typeref:typename:void
+sighup	patch/restartsig.c	/^sighup(int unused)$/;"	f	typeref:typename:void
 sigstatusbar	patch/bar_dwmblocks.c	/^sigstatusbar(const Arg *arg)$/;"	f	typeref:typename:void
 sigterm	def.dwm.c	/^sigterm(int unused)$/;"	f	typeref:typename:void
+sigterm	patch/restartsig.c	/^sigterm(int unused)$/;"	f	typeref:typename:void
 size	patch/ipc/dwm-msg.c	/^  uint32_t size;$/;"	m	struct:dwm_ipc_header	typeref:typename:uint32_t	file:
 smartgaps_fact	config.def.h	/^static const int smartgaps_fact          = 1;   \/* gap factor when there is only one client; 0 /;"	v	typeref:typename:const int
 smartgaps_fact	config.h	/^static const int smartgaps_fact          = 1;   \/* gap factor when there is only one client; 0 /;"	v	typeref:typename:const int

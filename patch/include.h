@@ -14,6 +14,7 @@
 /* Other patches */
 #include "movestack.h"
 #include "pertag.h"
+#include "restartsig.h"
 #include "sticky.h"
 #include "swallow.h"
 #include "switchcol.h"
