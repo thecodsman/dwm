@@ -220,7 +220,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key                 function                argument */
     // basics
-	{ MODKEY,                       XK_d,               spawn,                  {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,               spawn,                  {.v = (const char*[]){ "dmenu_run", NULL} } },
 	{ MODKEY,                       XK_Return,          spawn,                  {.v = termcmd } },
 	{ MODKEY,                       XK_b,               togglebar,              {0} },
 	{ MODKEY,                       XK_j,               focusstack,             {.i = +1 } },
@@ -237,6 +237,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_a,               defaultgaps,            {0} },
 	{ MODKEY,                       XK_Tab,             view,                   {0} },
 	{ MODKEY,                       XK_q,               killclient,             {0} },
+	{ MODKEY,			            XK_F4,      		spawn,          		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,             XK_F5,              xrdb,                   {.v = NULL } },
 
     // layouts
@@ -263,6 +264,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Right,           tagmon,                 {.i = +1 } },
 
     // hotkeys
+	{ MODKEY|ShiftMask,	        	XK_w,       		spawn,          		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
+	{ MODKEY,			            XK_e,       		spawn,          		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook 2>/dev/null") },
+	{ MODKEY|ShiftMask,	        	XK_e,       		spawn,          		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
+	{ MODKEY,   		        	XK_bracketleft,		spawn,          		{.v = (const char*[]){ "mpc", "seek", "-5", NULL } } },
+	{ MODKEY|ShiftMask,	        	XK_bracketleft,		spawn,          		{.v = (const char*[]){ "mpc", "seek", "-30", NULL } } },
+	{ MODKEY,		            	XK_bracketright,	spawn,          		{.v = (const char*[]){ "mpc", "seek", "+5", NULL } } },
+	{ MODKEY|ShiftMask,	        	XK_bracketright,	spawn,          		{.v = (const char*[]){ "mpc", "seek", "+30", NULL } } },
     { MODKEY,           			XK_minus,	        spawn,		            SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		        XK_minus,           spawn,                  SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			            XK_equal,           spawn,       		    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },

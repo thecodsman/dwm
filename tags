@@ -870,6 +870,7 @@ rules	config.h	/^static const Rule rules[] = {$/;"	v	typeref:typename:const Rule
 run	def.dwm.c	/^run(void)$/;"	f	typeref:typename:void
 run	dwm.c	/^run(void)$/;"	f	typeref:typename:void
 runAutostart	def.dwm.c	/^runAutostart(void) {$/;"	f	typeref:typename:void
+runAutostart	dwm.c	/^runAutostart(void) {$/;"	f	typeref:typename:void
 run_command	patch/ipc/dwm-msg.c	/^run_command(const char *name, char *args[], int argc)$/;"	f	typeref:typename:int	file:
 running	def.dwm.c	/^static int running = 1;$/;"	v	typeref:typename:int	file:
 running	dwm.c	/^static volatile sig_atomic_t running = 1;$/;"	v	typeref:typename:volatile sig_atomic_t	file:
