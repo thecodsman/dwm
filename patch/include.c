@@ -10,6 +10,7 @@
 #include "bar_statuscmd.c"
 #include "bar_tags.c"
 #include "bar_wintitle.c"
+#include "bar_systray.c"
 
 /* Other patches */
 #include "movestack.c"

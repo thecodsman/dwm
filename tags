@@ -235,6 +235,7 @@ MODKEY	config.def.h	/^#define MODKEY /;"	d
 MODKEY	config.h	/^#define MODKEY /;"	d
 MOUSEMASK	def.dwm.c	/^#define MOUSEMASK /;"	d	file:
 MOUSEMASK	dwm.c	/^#define MOUSEMASK /;"	d	file:
+Manager	patch/bar_systray.h	/^enum { Manager, Xembed, XembedInfo, XLast }; \/* Xembed atoms *\/$/;"	e	enum:__anonbeaf914d0103
 Monitor	def.dwm.c	/^struct Monitor {$/;"	s	file:
 Monitor	def.dwm.c	/^typedef struct Monitor Monitor;$/;"	t	typeref:struct:Monitor	file:
 Monitor	dwm.c	/^struct Monitor {$/;"	s	file:
@@ -254,6 +255,11 @@ NetLast	def.dwm.c	/^       NetWMWindowTypeDialog, NetClientList, NetClientInfo, 
 NetLast	dwm.c	/^	NetLast$/;"	e	enum:__anon0f53a99e0303	file:
 NetSupported	def.dwm.c	/^enum { NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	e	enum:__anonc707d71b0303	file:
 NetSupported	dwm.c	/^	NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	e	enum:__anon0f53a99e0303	file:
+NetSystemTray	dwm.c	/^	NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation,$/;"	e	enum:__anon0f53a99e0303	file:
+NetSystemTrayOP	dwm.c	/^	NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation,$/;"	e	enum:__anon0f53a99e0303	file:
+NetSystemTrayOrientation	dwm.c	/^	NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation,$/;"	e	enum:__anon0f53a99e0303	file:
+NetSystemTrayOrientationHorz	dwm.c	/^	NetSystemTrayVisual, NetWMWindowTypeDock, NetSystemTrayOrientationHorz,$/;"	e	enum:__anon0f53a99e0303	file:
+NetSystemTrayVisual	dwm.c	/^	NetSystemTrayVisual, NetWMWindowTypeDock, NetSystemTrayOrientationHorz,$/;"	e	enum:__anon0f53a99e0303	file:
 NetWMCheck	def.dwm.c	/^enum { NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	e	enum:__anonc707d71b0303	file:
 NetWMCheck	dwm.c	/^	NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	e	enum:__anon0f53a99e0303	file:
 NetWMFullscreen	def.dwm.c	/^       NetWMFullscreen, NetActiveWindow, NetWMWindowType,$/;"	e	enum:__anonc707d71b0303	file:
@@ -265,6 +271,7 @@ NetWMState	dwm.c	/^	NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	e	enum:
 NetWMWindowType	def.dwm.c	/^       NetWMFullscreen, NetActiveWindow, NetWMWindowType,$/;"	e	enum:__anonc707d71b0303	file:
 NetWMWindowType	dwm.c	/^	NetWMFullscreen, NetActiveWindow, NetWMWindowType,$/;"	e	enum:__anon0f53a99e0303	file:
 NetWMWindowTypeDialog	def.dwm.c	/^       NetWMWindowTypeDialog, NetClientList, NetClientInfo, NetLast }; \/* EWMH atoms *\/$/;"	e	enum:__anonc707d71b0303	file:
+NetWMWindowTypeDock	dwm.c	/^	NetSystemTrayVisual, NetWMWindowTypeDock, NetSystemTrayOrientationHorz,$/;"	e	enum:__anon0f53a99e0303	file:
 NumTags	def.dwm.c	/^struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };$/;"	s	file:
 NumTags	dwm.c	/^struct NumTags { char limitexceeded[NUMTAGS > 31 ? -1 : 1]; };$/;"	s	file:
 OBJ	Makefile	/^OBJ = ${SRC:.c=.o}$/;"	m
@@ -290,6 +297,7 @@ STATUSBAR	config.h	/^#define STATUSBAR /;"	d
 STRING	def.dwm.c	/^	STRING = 0,$/;"	e	enum:resource_type	file:
 SWITCHTAG	dwm.c	/^#define SWITCHTAG$/;"	d	file:
 SYNOPSIS	dwm.1	/^.SH SYNOPSIS$/;"	s	title:DWM
+SYSTEM_TRAY_REQUEST_DOCK	patch/bar_systray.h	/^#define SYSTEM_TRAY_REQUEST_DOCK /;"	d
 SchemeHidNorm	dwm.c	/^	SchemeHidNorm,$/;"	e	enum:__anon0f53a99e0203	file:
 SchemeHidSel	dwm.c	/^	SchemeHidSel,$/;"	e	enum:__anon0f53a99e0203	file:
 SchemeNorm	def.dwm.c	/^enum { SchemeNorm, SchemeSel }; \/* color schemes *\/$/;"	e	enum:__anonc707d71b0203	file:
@@ -303,6 +311,8 @@ SchemeTitleSel	dwm.c	/^	SchemeTitleSel,$/;"	e	enum:__anon0f53a99e0203	file:
 SchemeUrg	dwm.c	/^	SchemeUrg,$/;"	e	enum:__anon0f53a99e0203	file:
 Status bar	dwm.1	/^.SS Status bar$/;"	S	section:DWM""USAGE
 StatusCmd	patch/bar_statuscmd.h	/^} StatusCmd;$/;"	t	typeref:struct:__anonf36448860108
+Systray	patch/bar_systray.h	/^struct Systray {$/;"	s
+Systray	patch/bar_systray.h	/^typedef struct Systray Systray;$/;"	t	typeref:struct:Systray
 TAGKEYS	config.def.h	/^#define TAGKEYS(/;"	d
 TAGKEYS	config.h	/^#define TAGKEYS(/;"	d
 TAGMASK	def.dwm.c	/^#define TAGMASK	/;"	d	file:
@@ -320,6 +330,8 @@ USAGE	dwm.1	/^.SH USAGE$/;"	s	title:DWM
 UTF_INVALID	drw.c	/^#define UTF_INVALID /;"	d	file:
 UTF_SIZ	drw.c	/^#define UTF_SIZ /;"	d	file:
 VERSION	config.mk	/^VERSION = 6.5$/;"	m
+VERSION_MAJOR	patch/bar_systray.h	/^#define VERSION_MAJOR /;"	d
+VERSION_MINOR	patch/bar_systray.h	/^#define VERSION_MINOR /;"	d
 WIDTH	def.dwm.c	/^#define WIDTH(/;"	d	file:
 WIDTH	dwm.c	/^#define WIDTH(/;"	d	file:
 WMDelete	def.dwm.c	/^enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; \/* default atoms *\/$/;"	e	enum:__anonc707d71b0403	file:
@@ -337,9 +349,19 @@ Window	patch/ipc/dwm-msg.c	/^typedef unsigned long Window;$/;"	t	typeref:typenam
 X11INC	config.mk	/^X11INC = \/usr\/X11R6\/include$/;"	m
 X11LIB	config.mk	/^X11LIB = \/usr\/X11R6\/lib$/;"	m
 XCBLIBS	config.mk	/^XCBLIBS = -lX11-xcb -lxcb -lxcb-res$/;"	m
+XEMBED_EMBEDDED_NOTIFY	patch/bar_systray.h	/^#define XEMBED_EMBEDDED_NOTIFY /;"	d
+XEMBED_EMBEDDED_VERSION	patch/bar_systray.h	/^#define XEMBED_EMBEDDED_VERSION /;"	d
+XEMBED_FOCUS_IN	patch/bar_systray.h	/^#define XEMBED_FOCUS_IN /;"	d
+XEMBED_MAPPED	patch/bar_systray.h	/^#define XEMBED_MAPPED /;"	d
+XEMBED_MODALITY_ON	patch/bar_systray.h	/^#define XEMBED_MODALITY_ON /;"	d
+XEMBED_WINDOW_ACTIVATE	patch/bar_systray.h	/^#define XEMBED_WINDOW_ACTIVATE /;"	d
+XEMBED_WINDOW_DEACTIVATE	patch/bar_systray.h	/^#define XEMBED_WINDOW_DEACTIVATE /;"	d
 XINERAMAFLAGS	config.mk	/^XINERAMAFLAGS = -DXINERAMA$/;"	m
 XINERAMALIBS	config.mk	/^XINERAMALIBS  = -lXinerama$/;"	m
+XLast	patch/bar_systray.h	/^enum { Manager, Xembed, XembedInfo, XLast }; \/* Xembed atoms *\/$/;"	e	enum:__anonbeaf914d0103
 XRDB_LOAD_COLOR	patch/xrdb.h	/^#define XRDB_LOAD_COLOR(/;"	d
+Xembed	patch/bar_systray.h	/^enum { Manager, Xembed, XembedInfo, XLast }; \/* Xembed atoms *\/$/;"	e	enum:__anonbeaf914d0103
+XembedInfo	patch/bar_systray.h	/^enum { Manager, Xembed, XembedInfo, XLast }; \/* Xembed atoms *\/$/;"	e	enum:__anonbeaf914d0103
 YAJL_DUMPS_H_	patch/ipc/yajl_dumps.h	/^#define YAJL_DUMPS_H_$/;"	d
 YARR	patch/ipc/dwm-msg.c	/^#define YARR(/;"	d	file:
 YARR	patch/ipc/yajl_dumps.h	/^#define YARR(/;"	d
@@ -355,6 +377,7 @@ YNULL	patch/ipc/dwm-msg.c	/^#define YNULL(/;"	d	file:
 YNULL	patch/ipc/yajl_dumps.h	/^#define YNULL(/;"	d
 YSTR	patch/ipc/dwm-msg.c	/^#define YSTR(/;"	d	file:
 YSTR	patch/ipc/yajl_dumps.h	/^#define YSTR(/;"	d
+_NET_SYSTEM_TRAY_ORIENTATION_HORZ	patch/bar_systray.h	/^#define _NET_SYSTEM_TRAY_ORIENTATION_HORZ /;"	d
 __anon0f5116480108	drw.h	/^typedef struct {$/;"	s
 __anon0f5116480203	drw.h	/^enum { ColFg, ColBg, ColBorder, ColFloat, ColCount }; \/* Clr scheme index *\/$/;"	g
 __anon0f5116480308	drw.h	/^typedef struct {$/;"	s
@@ -373,6 +396,7 @@ __anon0f53a99e0c08	dwm.c	/^typedef struct {$/;"	s	file:
 __anon0f53a99e0d08	dwm.c	/^typedef struct {$/;"	s	file:
 __anon292629060103	patch/bar_tagicons.h	/^enum {$/;"	g
 __anon82a1be5e0103	patch/bar_indicators.h	/^enum {$/;"	g
+__anonbeaf914d0103	patch/bar_systray.h	/^enum { Manager, Xembed, XembedInfo, XLast }; \/* Xembed atoms *\/$/;"	g
 __anonc707d71b0103	def.dwm.c	/^enum { CurNormal, CurResize, CurMove, CurLast }; \/* cursor *\/$/;"	g	file:
 __anonc707d71b0203	def.dwm.c	/^enum { SchemeNorm, SchemeSel }; \/* color schemes *\/$/;"	g	file:
 __anonc707d71b0303	def.dwm.c	/^enum { NetSupported, NetWMName, NetWMState, NetWMCheck,$/;"	g	file:
@@ -408,6 +432,7 @@ attachstack	def.dwm.c	/^attachstack(Client *c)$/;"	f	typeref:typename:void
 attachstack	dwm.c	/^attachstack(Client *c)$/;"	f	typeref:typename:void
 bar	dwm.c	/^	Bar *bar;$/;"	m	struct:Monitor	typeref:typename:Bar *	file:
 bar	dwm.c	/^	int bar;$/;"	m	struct:__anon0f53a99e0908	typeref:typename:int	file:
+bar	patch/bar_systray.h	/^	Bar *bar;$/;"	m	struct:Systray	typeref:typename:Bar *
 barhover	patch/bar.c	/^barhover(XEvent *e, Bar *bar)$/;"	f	typeref:typename:void
 barrules	config.def.h	/^static const BarRule barrules[] = {$/;"	v	typeref:typename:const BarRule[]
 barrules	config.h	/^static const BarRule barrules[] = {$/;"	v	typeref:typename:const BarRule[]
@@ -464,6 +489,7 @@ click_status	patch/bar_status.c	/^click_status(Bar *bar, Arg *arg, BarArg *a)$/;
 click_statuscmd	patch/bar_statuscmd.c	/^click_statuscmd(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_statuscmd_es	patch/bar_statuscmd.c	/^click_statuscmd_es(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_statuscmd_text	patch/bar_statuscmd.c	/^click_statuscmd_text(Arg *arg, int rel_x, char *text)$/;"	f	typeref:typename:int
+click_systray	patch/bar_systray.c	/^click_systray(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_tags	patch/bar_tags.c	/^click_tags(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_wintitle	patch/bar_wintitle.c	/^click_wintitle(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 clickfunc	dwm.c	/^	int (*clickfunc)(Bar *bar, Arg *arg, BarArg *a);$/;"	m	struct:__anon0f53a99e0908	typeref:typename:int (*)(Bar * bar,Arg * arg,BarArg * a)	file:
@@ -520,6 +546,7 @@ draw_status	patch/bar_status.c	/^draw_status(Bar *bar, BarArg *a)$/;"	f	typeref:
 draw_status2d	patch/bar_status2d.c	/^draw_status2d(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_status2d_es	patch/bar_status2d.c	/^draw_status2d_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_status_es	patch/bar_status.c	/^draw_status_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+draw_systray	patch/bar_systray.c	/^draw_systray(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_tags	patch/bar_tags.c	/^draw_tags(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_wintitle	patch/bar_wintitle.c	/^draw_wintitle(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 drawable	drw.h	/^	Drawable drawable;$/;"	m	struct:__anon0f5116480308	typeref:typename:Drawable
@@ -639,6 +666,7 @@ h	drw.h	/^	unsigned int h;$/;"	m	struct:Fnt	typeref:typename:unsigned int
 h	drw.h	/^	unsigned int w, h;$/;"	m	struct:__anon0f5116480308	typeref:typename:unsigned int
 h	dwm.c	/^	int h;$/;"	m	struct:__anon0f53a99e0808	typeref:typename:int	file:
 h	dwm.c	/^	int x, y, w, h;$/;"	m	struct:Client	typeref:typename:int	file:
+h	patch/bar_systray.h	/^	int h;$/;"	m	struct:Systray	typeref:typename:int
 handler	def.dwm.c	/^static void (*handler[LASTEvent]) (XEvent *) = {$/;"	v	typeref:typename:void (* [LASTEvent])(XEvent *)	file:
 handler	dwm.c	/^static void (*handler[LASTEvent]) (XEvent *) = {$/;"	v	typeref:typename:void (* [LASTEvent])(XEvent *)	file:
 hidnormbgcolor	config.def.h	/^static char hidnormbgcolor[]             = "#222222";$/;"	v	typeref:typename:char[]
@@ -655,6 +683,7 @@ hover_tags	patch/bar_tags.c	/^hover_tags(Bar *bar, BarArg *a, XMotionEvent *ev)$
 hoverfunc	dwm.c	/^	int (*hoverfunc)(Bar *bar, BarArg *a, XMotionEvent *ev);$/;"	m	struct:__anon0f53a99e0908	typeref:typename:int (*)(Bar * bar,BarArg * a,XMotionEvent * ev)	file:
 i	def.dwm.c	/^	int i;$/;"	m	union:__anonc707d71b060a	typeref:typename:int	file:
 i	dwm.c	/^	int i;$/;"	m	union:__anon0f53a99e070a	typeref:typename:int	file:
+icons	patch/bar_systray.h	/^	Client *icons;$/;"	m	struct:Systray	typeref:typename:Client *
 id	patch/bar_statuscmd.h	/^	int id;$/;"	m	struct:__anonf36448860108	typeref:typename:int
 idx	dwm.c	/^	int idx;$/;"	m	struct:Bar	typeref:typename:int	file:
 ignore_reply	patch/ipc/dwm-msg.c	/^static unsigned int ignore_reply = 0;$/;"	v	typeref:typename:unsigned int	file:
@@ -853,6 +882,7 @@ read_socket	patch/ipc/dwm-msg.c	/^read_socket(IPCMessageType *msg_type, uint32_t
 recttomon	def.dwm.c	/^recttomon(int x, int y, int w, int h)$/;"	f	typeref:typename:Monitor *
 recttomon	dwm.c	/^recttomon(int x, int y, int w, int h)$/;"	f	typeref:typename:Monitor *
 recv_message	patch/ipc/dwm-msg.c	/^recv_message(uint8_t *msg_type, uint32_t *reply_size, uint8_t **reply)$/;"	f	typeref:typename:int	file:
+removesystrayicon	patch/bar_systray.c	/^removesystrayicon(Client *i)$/;"	f	typeref:typename:void
 resize	def.dwm.c	/^resize(Client *c, int x, int y, int w, int h, int interact)$/;"	f	typeref:typename:void
 resize	dwm.c	/^resize(Client *c, int x, int y, int w, int h, int interact)$/;"	f	typeref:typename:void
 resizeclient	def.dwm.c	/^resizeclient(Client *c, int x, int y, int w, int h)$/;"	f	typeref:typename:void
@@ -861,6 +891,7 @@ resizehints	config.def.h	/^static const int resizehints = 0;    \/* 1 means resp
 resizehints	config.h	/^static const int resizehints = 0;    \/* 1 means respect size hints in tiled resizals *\/$/;"	v	typeref:typename:const int
 resizemouse	def.dwm.c	/^resizemouse(const Arg *arg)$/;"	f	typeref:typename:void
 resizemouse	dwm.c	/^resizemouse(const Arg *arg)$/;"	f	typeref:typename:void
+resizerequest	patch/bar_systray.c	/^resizerequest(XEvent *e)$/;"	f	typeref:typename:void
 resource_load	def.dwm.c	/^resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst)$/;"	f	typeref:typename:void
 resource_type	def.dwm.c	/^enum resource_type {$/;"	g	file:
 restack	def.dwm.c	/^restack(Monitor *m)$/;"	f	typeref:typename:void
@@ -908,7 +939,7 @@ seltags	def.dwm.c	/^	unsigned int seltags;$/;"	m	struct:Monitor	typeref:typename
 seltags	dwm.c	/^	unsigned int seltags;$/;"	m	struct:Monitor	typeref:typename:unsigned int	file:
 send_message	patch/ipc/dwm-msg.c	/^send_message(IPCMessageType msg_type, uint32_t msg_size, uint8_t *msg)$/;"	f	typeref:typename:int	file:
 sendevent	def.dwm.c	/^sendevent(Client *c, Atom proto)$/;"	f	typeref:typename:int
-sendevent	dwm.c	/^sendevent(Client *c, Atom proto)$/;"	f	typeref:typename:int
+sendevent	dwm.c	/^sendevent(Window w, Atom proto, int mask, long d0, long d1, long d2, long d3, long d4)$/;"	f	typeref:typename:int
 sendmon	def.dwm.c	/^sendmon(Client *c, Monitor *m)$/;"	f	typeref:typename:void
 sendmon	dwm.c	/^sendmon(Client *c, Monitor *m)$/;"	f	typeref:typename:void
 setclientstate	def.dwm.c	/^setclientstate(Client *c, long state)$/;"	f	typeref:typename:void
@@ -939,6 +970,7 @@ showbar	dwm.c	/^	int showbar;$/;"	m	struct:Bar	typeref:typename:int	file:
 showbar	dwm.c	/^	int showbar;$/;"	m	struct:Monitor	typeref:typename:int	file:
 showhide	def.dwm.c	/^showhide(Client *c)$/;"	f	typeref:typename:void
 showhide	dwm.c	/^showhide(Client *c)$/;"	f	typeref:typename:void
+showsystray	config.h	/^static const int showsystray             = 1;   \/* 0 means no systray *\/$/;"	v	typeref:typename:const int
 sigchld	def.dwm.c	/^sigchld(int unused)$/;"	f	typeref:typename:void
 sigdwmblocks	def.dwm.c	/^sigdwmblocks(const Arg *arg)$/;"	f	typeref:typename:void
 sighup	def.dwm.c	/^sighup(int unused)$/;"	f	typeref:typename:void
@@ -984,6 +1016,9 @@ swallowingclient	patch/swallow.c	/^swallowingclient(Window w)$/;"	f	typeref:type
 switchcol	patch/switchcol.c	/^switchcol(const Arg *arg)$/;"	f	typeref:typename:void
 symbol	def.dwm.c	/^	const char *symbol;$/;"	m	struct:__anonc707d71b0908	typeref:typename:const char *	file:
 symbol	dwm.c	/^	const char *symbol;$/;"	m	struct:__anon0f53a99e0c08	typeref:typename:const char *	file:
+systray	patch/bar_systray.c	/^static Systray *systray = NULL;$/;"	v	typeref:typename:Systray *	file:
+systrayorientation	patch/bar_systray.c	/^static unsigned long systrayorientation = _NET_SYSTEM_TRAY_ORIENTATION_HORZ;$/;"	v	typeref:typename:unsigned long	file:
+systrayspacing	config.h	/^static const unsigned int systrayspacing = 2;   \/* systray spacing *\/$/;"	v	typeref:typename:const unsigned int
 tag	def.dwm.c	/^tag(const Arg *arg)$/;"	f	typeref:typename:void
 tag	dwm.c	/^tag(const Arg *arg)$/;"	f	typeref:typename:void
 tagicon	patch/bar_tagicons.c	/^tagicon(Monitor *m, int tag)$/;"	f	typeref:typename:char *
@@ -1105,6 +1140,8 @@ updatesizehints	def.dwm.c	/^updatesizehints(Client *c)$/;"	f	typeref:typename:vo
 updatesizehints	dwm.c	/^updatesizehints(Client *c)$/;"	f	typeref:typename:void
 updatestatus	def.dwm.c	/^updatestatus(void)$/;"	f	typeref:typename:void
 updatestatus	dwm.c	/^updatestatus(void)$/;"	f	typeref:typename:void
+updatesystrayicongeom	patch/bar_systray.c	/^updatesystrayicongeom(Client *i, int w, int h)$/;"	f	typeref:typename:void
+updatesystrayiconstate	patch/bar_systray.c	/^updatesystrayiconstate(Client *i, XPropertyEvent *ev)$/;"	f	typeref:typename:void
 updatetitle	def.dwm.c	/^updatetitle(Client *c)$/;"	f	typeref:typename:void
 updatetitle	dwm.c	/^updatetitle(Client *c)$/;"	f	typeref:typename:void
 updatewindowtype	def.dwm.c	/^updatewindowtype(Client *c)$/;"	f	typeref:typename:void
@@ -1144,12 +1181,14 @@ width_status	patch/bar_status.c	/^width_status(Bar *bar, BarArg *a)$/;"	f	typere
 width_status2d	patch/bar_status2d.c	/^width_status2d(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_status2d_es	patch/bar_status2d.c	/^width_status2d_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_status_es	patch/bar_status.c	/^width_status_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+width_systray	patch/bar_systray.c	/^width_systray(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_tags	patch/bar_tags.c	/^width_tags(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_wintitle	patch/bar_wintitle.c	/^width_wintitle(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 widthfunc	dwm.c	/^	int (*widthfunc)(Bar *bar, BarArg *a);$/;"	m	struct:__anon0f53a99e0908	typeref:typename:int (*)(Bar * bar,BarArg * a)	file:
 win	def.dwm.c	/^	Window win;$/;"	m	struct:Client	typeref:typename:Window	file:
 win	dwm.c	/^	Window win;$/;"	m	struct:Bar	typeref:typename:Window	file:
 win	dwm.c	/^	Window win;$/;"	m	struct:Client	typeref:typename:Window	file:
+win	patch/bar_systray.h	/^	Window win;$/;"	m	struct:Systray	typeref:typename:Window
 winpid	def.dwm.c	/^winpid(Window w)$/;"	f	typeref:typename:pid_t
 winpid	patch/swallow.c	/^winpid(Window w)$/;"	f	typeref:typename:pid_t
 wintobar	patch/bar.c	/^wintobar(Window win)$/;"	f	typeref:typename:Bar *
@@ -1157,6 +1196,7 @@ wintoclient	def.dwm.c	/^wintoclient(Window w)$/;"	f	typeref:typename:Client *
 wintoclient	dwm.c	/^wintoclient(Window w)$/;"	f	typeref:typename:Client *
 wintomon	def.dwm.c	/^wintomon(Window w)$/;"	f	typeref:typename:Monitor *
 wintomon	dwm.c	/^wintomon(Window w)$/;"	f	typeref:typename:Monitor *
+wintosystrayicon	patch/bar_systray.c	/^wintosystrayicon(Window w)$/;"	f	typeref:typename:Client *
 wintype	dwm.c	/^	const char *wintype;$/;"	m	struct:__anon0f53a99e0d08	typeref:typename:const char *	file:
 wmatom	def.dwm.c	/^static Atom wmatom[WMLast], netatom[NetLast];$/;"	v	typeref:typename:Atom[]	file:
 wmatom	dwm.c	/^static Atom wmatom[WMLast], netatom[NetLast];$/;"	v	typeref:typename:Atom[]	file:
@@ -1174,6 +1214,7 @@ x	dwm.c	/^	int x, w; \/\/ position, width for internal use$/;"	m	struct:__anon0f
 x	dwm.c	/^	int x, y, w, h;$/;"	m	struct:Client	typeref:typename:int	file:
 x	dwm.c	/^	int x;$/;"	m	struct:__anon0f53a99e0808	typeref:typename:int	file:
 x	dwm.c	/^	int x[BARRULES]; \/\/ x position, array length == ^$/;"	m	struct:Bar	typeref:typename:int[]	file:
+xatom	dwm.c	/^static Atom xatom[XLast];$/;"	v	typeref:typename:Atom[]	file:
 xcon	def.dwm.c	/^static xcb_connection_t *xcon;$/;"	v	typeref:typename:xcb_connection_t *	file:
 xcon	patch/swallow.c	/^static xcb_connection_t *xcon;$/;"	v	typeref:typename:xcb_connection_t *	file:
 xerror	def.dwm.c	/^xerror(Display *dpy, XErrorEvent *ee)$/;"	f	typeref:typename:int
