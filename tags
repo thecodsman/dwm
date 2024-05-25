@@ -462,6 +462,7 @@ click	dwm.c	/^	unsigned int click;$/;"	m	struct:__anon0f53a99e0a08	typeref:typen
 click_ltsymbol	patch/bar_ltsymbol.c	/^click_ltsymbol(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_status	patch/bar_status.c	/^click_status(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_statuscmd	patch/bar_statuscmd.c	/^click_statuscmd(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
+click_statuscmd_es	patch/bar_statuscmd.c	/^click_statuscmd_es(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_statuscmd_text	patch/bar_statuscmd.c	/^click_statuscmd_text(Arg *arg, int rel_x, char *text)$/;"	f	typeref:typename:int
 click_tags	patch/bar_tags.c	/^click_tags(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
 click_wintitle	patch/bar_wintitle.c	/^click_wintitle(Bar *bar, Arg *arg, BarArg *a)$/;"	f	typeref:typename:int
@@ -517,6 +518,8 @@ dpy	dwm.c	/^static Display *dpy;$/;"	v	typeref:typename:Display *	file:
 draw_ltsymbol	patch/bar_ltsymbol.c	/^draw_ltsymbol(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_status	patch/bar_status.c	/^draw_status(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_status2d	patch/bar_status2d.c	/^draw_status2d(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+draw_status2d_es	patch/bar_status2d.c	/^draw_status2d_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+draw_status_es	patch/bar_status.c	/^draw_status_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_tags	patch/bar_tags.c	/^draw_tags(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 draw_wintitle	patch/bar_wintitle.c	/^draw_wintitle(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 drawable	drw.h	/^	Drawable drawable;$/;"	m	struct:__anon0f5116480308	typeref:typename:Drawable
@@ -561,6 +564,7 @@ enablegaps	patch/vanitygaps.c	/^static int enablegaps = 1;$/;"	v	typeref:typenam
 enablegaps	vanitygaps.c	/^static int enablegaps = 1;$/;"	v	typeref:typename:int	file:
 enternotify	def.dwm.c	/^enternotify(XEvent *e)$/;"	f	typeref:typename:void
 enternotify	dwm.c	/^enternotify(XEvent *e)$/;"	f	typeref:typename:void
+estext	dwm.c	/^static char estext[1024];$/;"	v	typeref:typename:char[1024]	file:
 event	patch/ipc/IPCClient.h	/^  struct epoll_event event;$/;"	m	struct:IPCClient	typeref:struct:epoll_event
 expose	def.dwm.c	/^expose(XEvent *e)$/;"	f	typeref:typename:void
 expose	dwm.c	/^expose(XEvent *e)$/;"	f	typeref:typename:void
@@ -842,6 +846,7 @@ propertynotify	dwm.c	/^propertynotify(XEvent *e)$/;"	f	typeref:typename:void
 pushstack	def.dwm.c	/^pushstack(const Arg *arg) {$/;"	f	typeref:typename:void
 quit	def.dwm.c	/^quit(const Arg *arg)$/;"	f	typeref:typename:void
 quit	dwm.c	/^quit(const Arg *arg)$/;"	f	typeref:typename:void
+rawestext	dwm.c	/^static char rawestext[1024];$/;"	v	typeref:typename:char[1024]	file:
 rawstext	def.dwm.c	/^static char rawstext[256];$/;"	v	typeref:typename:char[256]	file:
 rawstext	dwm.c	/^static char rawstext[1024];$/;"	v	typeref:typename:char[1024]	file:
 read_socket	patch/ipc/dwm-msg.c	/^read_socket(IPCMessageType *msg_type, uint32_t *msg_size, char **msg)$/;"	f	typeref:typename:int	file:
@@ -960,6 +965,7 @@ status2dtextlength	patch/bar_status2d.c	/^status2dtextlength(char* stext)$/;"	f	
 statusmon	config.def.h	/^static const int statusmon               = 'A';$/;"	v	typeref:typename:const int
 statusmon	config.h	/^static const int statusmon               = 'A';$/;"	v	typeref:typename:const int
 statuspid	patch/bar_dwmblocks.c	/^pid_t statuspid = -1;$/;"	v	typeref:typename:pid_t
+statussep	config.h	/^static const char statussep              = ';'; \/* separator between status bars *\/$/;"	v	typeref:typename:const char
 statussig	patch/bar_dwmblocks.c	/^static int statussig;$/;"	v	typeref:typename:int	file:
 stext	def.dwm.c	/^static char stext[256];$/;"	v	typeref:typename:char[256]	file:
 stext	dwm.c	/^static char stext[1024];$/;"	v	typeref:typename:char[1024]	file:
@@ -1136,6 +1142,8 @@ wh	dwm.c	/^	int wx, wy, ww, wh;   \/* window area  *\/$/;"	m	struct:Monitor	type
 width_ltsymbol	patch/bar_ltsymbol.c	/^width_ltsymbol(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_status	patch/bar_status.c	/^width_status(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_status2d	patch/bar_status2d.c	/^width_status2d(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+width_status2d_es	patch/bar_status2d.c	/^width_status2d_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
+width_status_es	patch/bar_status.c	/^width_status_es(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_tags	patch/bar_tags.c	/^width_tags(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 width_wintitle	patch/bar_wintitle.c	/^width_wintitle(Bar *bar, BarArg *a)$/;"	f	typeref:typename:int
 widthfunc	dwm.c	/^	int (*widthfunc)(Bar *bar, BarArg *a);$/;"	m	struct:__anon0f53a99e0908	typeref:typename:int (*)(Bar * bar,BarArg * a)	file:

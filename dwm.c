@@ -358,6 +358,8 @@ static void zoom(const Arg *arg);
 static const char broken[] = "broken";
 static char stext[1024];
 static char rawstext[1024];
+static char estext[1024];
+static char rawestext[1024];
 
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
@@ -1397,6 +1399,9 @@ manage(Window w, XWindowAttributes *wa)
 	configure(c); /* propagates border_width, if size doesn't change */
 	updatesizehints(c);
 	updatewmhints(c);
+
+	c->x = c->mon->wx + (c->mon->ww - WIDTH(c)) / 2;
+	c->y = c->mon->wy + (c->mon->wh - HEIGHT(c)) / 2;
 
 	if (getatomprop(c, netatom[NetWMState], XA_ATOM) == netatom[NetWMFullscreen])
 		setfullscreen(c, 1);
@@ -2451,10 +2456,20 @@ void
 updatestatus(void)
 {
 	Monitor *m;
-	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
+	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext))) {
 		strcpy(stext, "dwm-"VERSION);
-	else
+		estext[0] = '\0';
+	} else {
+		char *e = strchr(rawstext, statussep);
+		if (e) {
+			*e = '\0'; e++;
+			strncpy(rawestext, e, sizeof(estext) - 1);
+			copyvalidchars(estext, rawestext);
+		} else {
+			estext[0] = '\0';
+		}
 		copyvalidchars(stext, rawstext);
+	}
 	for (m = mons; m; m = m->next)
 		drawbar(m);
 }

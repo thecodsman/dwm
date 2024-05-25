@@ -24,6 +24,7 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
+static const char statussep              = ';'; /* separator between status bars */
 static const char *fonts[]               = { "monospace:size=10" };
 static const char dmenufont[]            = "monospace:size=10";
 
@@ -149,6 +150,7 @@ static const Rule rules[] = {
 	RULE(.class = "LibreWolf", .tags = 1 << 1)
 	RULE(.class = "vesktop", .tags = 1 << 2)
 	RULE(.class = "obs", .tags = 1 << 2)
+    RULE(.class = TERMCLASS, .isterminal = 1)
 };
 
 /* Bar rules allow you to configure what is shown where on the bar, as well as
@@ -167,8 +169,9 @@ static const BarRule barrules[] = {
 	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,        click_statuscmd,     NULL,             "status2d" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
 	{ -1,        0,     BAR_ALIGN_NONE,   width_wintitle,           draw_wintitle,          click_wintitle,          NULL,                    "wintitle" },
+	{ statusmon, 1,     BAR_ALIGN_RIGHT,  width_status2d_es,        draw_status2d_es,       click_statuscmd_es,      NULL,                    "status2d_es" },
 };
 
 /* layout(s) */
@@ -221,6 +224,7 @@ static const Key keys[] = {
 	/* modifier                     key                 function                argument */
     // basics
 	{ MODKEY,                       XK_d,               spawn,                  {.v = (const char*[]){ "dmenu_run", NULL} } },
+	{ MODKEY|ShiftMask,             XK_d,               spawn,                  {.v = (const char*[]){ "passmenu", NULL} } },
 	{ MODKEY,                       XK_Return,          spawn,                  {.v = termcmd } },
 	{ MODKEY,                       XK_b,               togglebar,              {0} },
 	{ MODKEY,                       XK_j,               focusstack,             {.i = +1 } },
@@ -288,6 +292,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,	        	XK_n,		        spawn,		            SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY,			            XK_m,		        spawn,		            {.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
 	{ MODKEY|ShiftMask,	        	XK_m,		        spawn,		            SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY,			            XK_r,		        spawn,		            SHCMD("select_meme") },
     { MODKEY,			            XK_p,   	        spawn,		            {.v = (const char*[]){ "mpc", "toggle", NULL } } },
 	{ MODKEY,			            XK_comma,	        spawn,		            {.v = (const char*[]){ "mpc", "prev", NULL } } },
 	{ MODKEY|ShiftMask,	        	XK_comma,	        spawn,		            {.v = (const char*[]){ "mpc", "seek", "0%", NULL } } },
