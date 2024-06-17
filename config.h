@@ -148,10 +148,11 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 7)
+	RULE(.class = "Gimp", .tags = 1 << 6)
 	RULE(.class = "LibreWolf", .tags = 1 << 1)
 	RULE(.class = "vesktop", .tags = 1 << 2)
-	RULE(.class = "obs", .tags = 1 << 2)
+	RULE(.class = "obs", .tags = 1 << 5)
+    RULE(.class = "steam", .tags = 1 << 3)
     RULE(.class = TERMCLASS, .isterminal = 1)
 };
 
@@ -301,6 +302,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,	        	XK_comma,	        spawn,		            {.v = (const char*[]){ "mpc", "seek", "0%", NULL } } },
 	{ MODKEY,			            XK_period,	        spawn,		            {.v = (const char*[]){ "mpc", "next", NULL } } },
 	{ MODKEY|ShiftMask,	        	XK_period,	        spawn,		            {.v = (const char*[]){ "mpc", "repeat", NULL } } },
+	{ MODKEY,			            XK_grave,           spawn,       		    SHCMD("dmenuunicode") },
     { MODKEY,                       XK_w,               spawn,                  {.v = (const char*[]){ BROWSER, NULL } } },
 
 

@@ -1,8 +1,11 @@
 # my build of dwm (using flexipatch)
 
-very much inspired by luke smiths build of dwm
+things added compared to lukes build:
+ - status2d
+ - extrastatus (although its not really used in the default config.h)
+ - something else but I forget
 
-ill probably update this readme later
+also is a newer version of dwm
 
 ```bash
 git clone https://github.com/thecodsman/dwm.git
